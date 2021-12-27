@@ -1,0 +1,68 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25420\viewh14040\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Exception in thread "main" org.springframework.beans.factory.BeanDefinitionStoreException: Failed to read candidate component class: URL [jar:file:/Users/kuba/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.6.2/spring-boot-autoconfigure-2.6.2.jar!/org/springframework/boot/autoconfigure/r2dbc/ConnectionFactoryConfigurations$PoolConfiguration.class]; nested exception is java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PoolConfiguration due to io/r2dbc/spi/ValidationDepth not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)\
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:457)\
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.findCandidateComponents(ClassPathScanningCandidateComponentProvider.java:316)\
+	at org.springframework.context.annotation.ClassPathBeanDefinitionScanner.doScan(ClassPathBeanDefinitionScanner.java:276)\
+	at org.springframework.context.annotation.ComponentScanAnnotationParser.parse(ComponentScanAnnotationParser.java:128)\
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:296)\
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:250)\
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:207)\
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:175)\
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:331)\
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:247)\
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:311)\
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:112)\
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:746)\
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:564)\
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)\
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)\
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:412)\
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:302)\
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)\
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1290)\
+	at Main.main(Main.java:7)\
+Caused by: java.lang.IllegalStateException: Could not evaluate condition on org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PoolConfiguration due to io/r2dbc/spi/ValidationDepth not found. Make sure your own configuration does not rely on that class. This can also happen if you are @ComponentScanning a springframework package (e.g. if you put a @ComponentScan in the default package by mistake)\
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:54)\
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:108)\
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:88)\
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:71)\
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isConditionMatch(ClassPathScanningCandidateComponentProvider.java:512)\
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.isCandidateComponent(ClassPathScanningCandidateComponentProvider.java:495)\
+	at org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider.scanCandidateComponents(ClassPathScanningCandidateComponentProvider.java:430)\
+	... 20 more\
+Caused by: java.lang.NoClassDefFoundError: io/r2dbc/spi/ValidationDepth\
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)\
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3334)\
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2446)\
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.getSorted(JavaBeanBinder.java:140)\
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.addProperties(JavaBeanBinder.java:132)\
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.<init>(JavaBeanBinder.java:127)\
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder$Bean.get(JavaBeanBinder.java:226)\
+	at org.springframework.boot.context.properties.bind.JavaBeanBinder.bind(JavaBeanBinder.java:54)\
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindDataObject$5(Binder.java:473)\
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:587)\
+	at org.springframework.boot.context.properties.bind.Binder$Context.withDataObject(Binder.java:573)\
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$300(Binder.java:534)\
+	at org.springframework.boot.context.properties.bind.Binder.bindDataObject(Binder.java:471)\
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:411)\
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:340)\
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:329)\
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:259)\
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:220)\
+	at org.springframework.boot.autoconfigure.r2dbc.ConnectionFactoryConfigurations$PooledConnectionFactoryCondition.getMatchOutcome(ConnectionFactoryConfigurations.java:138)\
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:47)\
+	... 26 more\
+Caused by: java.lang.ClassNotFoundException: io.r2dbc.spi.ValidationDepth\
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:636)\
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:182)\
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:519)\
+	... 46 more\
+\
+Process finished with exit code 1\
+}
